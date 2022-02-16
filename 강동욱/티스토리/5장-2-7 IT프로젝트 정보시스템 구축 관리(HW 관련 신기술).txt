@@ -1,0 +1,32 @@
+고가용성 (HA, High Availability)
+- 긴 시간동안 안정적인 서비스 운영을 위해 장애 발생 시 즉시 다른 시스템으로 대체 가능한 환경을 구축하는 매커니즘
+
+4D Printing
+- 특정 시간이나 환경 조건이 갖추어지면 스스로 형태를 변화시키거나 제조되는 자가 조립 기술이 적용된 제품을 프린팅하는 기술
+
+RAID (Reduntant Array of Inexpensive Disk, Redundant Array of Independent Disk)
+- 데이터 블록들을 서로 다른 디스크들에 분산 저장하여 디스크 속도를 향상시키는 것
+
+앤 스크린 (N-Screen)
+- N개의 서로 다른 단말기에서 동일한 콘텐츠를 자유롭게 이용할 수 있는 서비스
+
+컴패니언 스크린 (Companion Screen)
+- 앤 스크린의 한 종류로, 스마트폰이나 태블릿 PC 의미
+
+신 클라이언트 PC (Thin Client PC)
+- 기본적인 메모리만 갖추고 서버와 네트워크로 운용되는 개인용 컴퓨터
+
+패블릿 (Phablet)
+- Phone + Tablet
+
+멤스 (MEMS, Micro-Electro Mechinical System)
+- 초미세 장치
+
+트러스트존 기술 (TrustZone Technology)
+- ARM에서 개발한 기술로, 하드웨어 기반의 보안 기술
+
+엠디스크 (M-DISC)
+- 한 번의 기록만으로 자료를 영구 보관할 수 있는 광 저장 장치
+
+멤리스터 (Memristor)
+- Memory + Register

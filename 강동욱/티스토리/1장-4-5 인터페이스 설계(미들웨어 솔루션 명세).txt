@@ -1,0 +1,33 @@
+미들웨어 (Middleware) 개념 및 종류
+- 미들웨어는 운영체제와 응용 프로그램 사이에서 추가적인 서비스를 제공하는 소프트웨어
+- 표준화된 인터페이스를 제공함으로써 시스템 간 데이터 교환 시 일관성 보장
+
+DB (DataBase)
+- 클라이언트에서 원격의 데이터베이스와 연결하기 위한 미들웨어
+- 2-Tier 아키텍처 : DB를 사용하여 시스템을 구축하는 것
+- ex) 마이크로소프트의 ODBC / IDAPI / Glue
+
+RPC (Remote Procedure Call)
+- RPC (원격 프로시저 호출)는 원격 프로시저를 로컬 프로시저처럼 호출하는 방식의 미들웨어
+
+MOM (Message Oriented Middleware)
+- 메시지 기반의 비동기형 메시지를 전달하는 방식의 미들웨어
+- ex) IBM의 MQ / 오라클의 Message Q
+
+TP-Monitor (Transaction-Processing Monitor)
+- 항공기나 철도 예약 업무 등과 같은 온라인 트랜잭션 업무에서 트랜잭션을 처리 및 감시하는 미들웨어
+- 사용자 수가 증가해도 빠른 응답 속도를 유지해야 하는 업무에 주로 사용
+- ex) 티맥스소프트의 tmax
+
+ORB (Object Request Broker)
+- 객체 지향 미들웨어로 코바(CORBA) 표준 스펙을 구현한 미들웨어
+
+WAS (Web Application Server)
+- 정적인 콘텐츠를 처리하는 웹 서버와 달리 사용자 요구에 따라 변하는 동적인 컨텐츠를 처리하기 위해 사용되는 미들웨어
+- ex) 오라클의 WebLogic / IBM의 WebSphere
+
+미들웨어 솔루션 식별
+- 개발 및 운영 환경에 사용될 미들웨어 솔루션을 확인하고 목록을 작성
+
+미들웨어 솔루션 명세서 작성
+- 미들웨어 솔루션 목록의 미들웨어 솔루션별로 관련 정보를 상세히 기술

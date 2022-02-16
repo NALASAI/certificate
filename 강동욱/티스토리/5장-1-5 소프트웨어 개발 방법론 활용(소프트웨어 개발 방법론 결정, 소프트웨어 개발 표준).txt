@@ -1,0 +1,43 @@
+소프트웨어 개발 방법론 결정
+소프트웨어 개발 방법론 결정의 개요
+- 프로젝트 관리와 재사용 현황을 소프트웨어 개발 방법론에 반영하고, 확정된 소프트웨어 생명 주기와 개발 방법론에 맞춰 소프트웨어 개발 단계, 활동, 절차 등을 정의하는 것
+- 프로젝트 관리
+* 일정 관리, 비용 관리, 인력 관리, 위험 관리, 품질 관리
+
+소프트웨어 개발 표준
+소프트웨어 개발 표준의 개요
+- 소프트웨어 개발 단계에서 수행하는 품질 관리에 사용되는 국제 표준
+
+ISO/IEC 12207
+- ISO에서 만든 표준 소프트웨어 생명 주기 프로세스
+- 기본 생명 주기 프로세스
+- 지원 생명 주기 프로세스
+- 조직 생명 주기 프로세스
+
+CMMI (능력 성숙도 통합 모델, Capability Maturity Model Integration)
+- 소프트웨어 개발 조직의 업무 능력 및 조직의 성숙도를 평가하는 모델
+- 단계
+1) 초기 (Initial) : 정의된 프로세스 없음
+2) 관리 (Managed) : 규칙화된 프로세스
+3) 정의 (Defined) : 표준화된 프로세스
+4) 정량적 관리 (Quantitatively Managed) : 예측 가능한 프로세스
+5) 최적화 (Optimizing) : 지속적 개선 프로세스
+
+SPICE (Software Process Improvement and Capability dEtermination)
+- 소프트웨어 처리 개선 및 능력 평가 기준은 소프트웨어 프로세스를 평가 및 개선하는 국제 표준
+- 목적
+* 프로세스 개선을 개발 기관이 스스로 평가하는 것
+* 기관에서 지정한 요구조건의 만족 여부를 개발 조직이 스스로 평가하는 것
+- 구성
+* 고객-공급자 (Customer-Supplier) 프로세스
+* 공학 (Engineering) 프로세스
+* 지원 (Support) 프로세스
+* 관리 (Management) 프로세스
+* 조직 (Organization) 프로세스
+- 단계
+* 불완전 (Incomplete)
+* 수행 (Performed)
+* 관리 (Managed)
+* 확립 (Established)
+* 예측 (Predictable)
+* 최적화 (Optimizing)

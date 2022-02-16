@@ -1,0 +1,28 @@
+데이터 입출력의 개요
+- 단순 입력과 출력뿐만 아니라 데이터를 조작하는 모든 행위 (SQL 사용)
+- 데이터 접속
+* 데이터 입출력을 구현하기 위해 개발 코드 내에 SQL 삽입하거나, 객체와 데이터를 연결하는 것
+- 트랜잭션 (Transaction)
+* 데이터베이스 조작 시 한꺼번에 모두 수행되어야 할 일련의 연산들
+
+SQL (Structured Query Language)
+- 관계대수와 관계해석을 기초로 한 혼합 데이터 언어
+- 데이터 정의어 (DDL)
+- 데이터 조작어 (DML)
+- 데이터 제어어 (DCL)
+
+데이터 접속 (Data Mapping)
+- 데이터 접속은 소프트웨어 기능 구현을 위해 프로그래밍 코드와 데이터베이스의 데이터를 연결하는 것
+- SQL Mapping
+* 프로그래밍 코드 내 SQL 직저 입력
+* ex) JDBC, ODBC, MyBatis
+- ORM (Object-Relational Mapping)
+* 객체와 데이터베이스의 데이터를 연결하는 기술
+* ex) JPA, Hibernate, Django
+
+트랜잭션 (Transaction)
+- 데이터베이스의 상태를 변환시키는 하나의 논리적 기능을 수행하기 위한 작업의 단위
+- TCL (Transaction Control Language)
+* COMMIT : 트랜잭션 처리가 정상적으로 종료되어 변경 내용을 데이터베이스에 반영
+* ROLLBACK : 트랜잭션 처리가 비정상적으로 종료되어 변경 내용을 취소하고 이전 작업으로 되돌림
+* SAVEPOINT : 트랜잭션 내 ROLLBACK 할 위치인 저장점을 지정
