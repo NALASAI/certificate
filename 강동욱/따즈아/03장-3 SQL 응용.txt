@@ -1,3 +1,117 @@
 SQL의 개념
 - SQL(Structured Query Language)의 개요
+* 1974년 IBM 개발, 관계형 데이터베이스 지원언어
+* [관계대수 + 관계해석] 혼합 데이터
 - SQL의 분류
+* DDL : 정의어, [스키마, 도메인, 테이블, 뷰, 인덱스] 정의, 변경, 삭제 등에 사용, DB관리자 및 DB설계자 사용 언어
+# Create, ALTER, DROP	[CAD]
+* DML : 조작어, 검색, 삽입, 삭제, 수정
+# Select, Insert, Delete, Update	[SIDU]
+* DCL : 제어어, 데이터 보안, 회복
+# Commit, Rollback, Grant, Revoke	[CRGR]
+# 정상	, 복구	, 권한부여, 권한취소
+
+DDL
+- DDL(Data Define Language, 데이터 정의어)의 개념 : 구조, 데이터 형식, 접근 방식 등 DB를 구축하거나 수정 할 목적으로 사용하는 언어
+* CREATE SCHEMA
+# 예) create schema 대학교 Authorization 홍
+* CREATE DOMAIN
+# 예) create domain ss char(크기)
+* CREATE TABLE
+# primary key 기본키
+# unique	대체키
+# Foreign key 외래키
+# check 제약조건
+* CREATE VIEW
+# create view 뷰명(속성명 ~[나열]) as select 문
+# 예) 고객테이블에서 주소가 '서울시' 인 성명, 전화번호 ..... 뷰 : 명단
+# create view 명단(성명, 전화번호) as select 성명, 전화번호 From 고객 where 주소 = '서울시 '
+* CREATE INDEX
+# create index 인덱스명 on 테이블명(속성명 [ASC(오름차순), DESC(내림차순)])
+# 예) 고객테이블에서 유니크한 특성을 갖는 고객번호 속성을 내림차순으로 나열 | '고객번호_idx' = 인덱스명
+# create unique index 고객번호_idx on 고객(고객번호 DESC)
+* ALTER TABLE : 구조 변경시 사용
+# 삽입 ADD
+# 삭제 DROP
+# 변경 ALTER
+# 예) alter table 고객 ADD 주소 char(10)
+# 예) alter table 고객 alter 주소 char(10) not null
+# 예) alter table 고객 drop column 주소
+* DROP 속성 속성명 [ CASCADE | RESTRICT ]: 특정한 속성을 제거할때 사용
+# 속성 : schema, domain, table, view, index
+# CASCADE : 삭제할 요소를 참조하는 다른 모든 개체를 함께 삭제한다. 즉 Main Table의 데이터 삭제 시 각 외래키와 관계를 맺고 있는 모든 데이터를 제거
+# RESTRICT : 다른 개체가 제거할 요소를 참조중일 때는 제거 취소
+
+DCL
+- DCL(Data Control Language, 데이터 제어어)의 개념 : 데이터 보안, 무결성, 회복, 병형 제어 등을 정의하는 데 사용하는 언어
+# 등급 : DBA(DB 관리자), Resource(DB, Table 생성자), Connect(단순사용자)
+* GRANT / REVOKE : GRANT ~ To / Revoke ~ From
+# 예) NABI 사용자에게 DB, 테이블 생성 권한 부여
+# grant resource to NABI
+# 권한 내용 : all(모든 권한), select(검색 권한), insert(삽입 권한), delete(삭제 권한), update(수정 권한), alter(구조 변경 권한), with grant option(부여받은 권한을 다른 사용자에게 다시 부여할 수 있는 권한 부여)
+   , grant option for(다른사용자에게 부여할수 있는 권한을 취소)
+# grant all on 고객 to NABI with grant option : 고객 테이블에서 'NABI'에게 부여받은 권한을 다른사용자에게 권한을 부여할 수 있는 권한을 모든권한을 부여하겠다
+# Revoke grant option for update on 고객 from NABI : 'NABI'라는 사용자에게 부여한 고객 테이블에 관한 권한 중 Update 권한을 다른사람에게 부여할수 있는 권한을 취소한다.
+* COMMIT : 트랜잭션이 성공적으로 끝났음을 알려주는 명령어
+* ROLLBACK : 변경된 모든 내용들을 취소하고 데이터베이스를 이전 상태로 되돌리는 명령어[COMMIT 입력전에 사용]
+* SAVEPOINT :  ROLLBACK 할 위치인 저장점을 지정하는 명령어
+
+DML
+- DML(Data Manipulation Language, 데이터 조작어)의 개념 : 데이터베이스 사용자가 응용 프로그램이나 질의어를 통해 저장된 데이터를 실질적으로 관리하는데 사용되는 언어
+* 삽입문(Insert into~), 삭제문(Delete From~), 갱신문(Update ~ set ~), 검색 select ~ from
+- INSERT : 새로운 튜플을 삽입하는 명령어
+* insert into 테이블명(속성1, 속성2...) value(데이터1, 데이터2....)
+* 예) 학생테이블의 번호, 이름, 학년, 학과 속성에 '01', '정수현', '2', '사이버안보'를 삽입하시오
+* 예) insert into 학생(번호, 이름, 학년, 학과) value('01', '정수현', 2, '사이버안보')
+- DELETE : 테이블의 특정 튜플을 삭제하는 명령어
+* Delete from 테이블명 Where 조건
+* delete from 학생 where 번호='101' : 학생테이블에서 번호 101을 찾아 삭제
+* delete from 학생 where 과목='컴퓨터' : 학생테이블에서 과목 컴퓨터을 찾아 삭제
+- UPDATE : 테이블의 특정 튜플의 내용을 변경하고자 할 때 사용하는 명령어
+* update 테이블명 set 속성명=데이터 where 조건
+* update 학생 set 이름='홍길동' where 번호='101 : 학생테이블에서 번호가 101을 찾아 이름을 홍길동으로 변경하라
+* update 학생 set 수강과목='컴퓨터' where 이름='홍길동 : 학생테이블에서 이름이 '홍길동'을 찾아 수강과목을 컴퓨터로 변경
+* update 학생 set 수강료=수강료+10000 where 수강과목='컴퓨터' : 학생테이블에서 수강과목이 '컴퓨터'를 찾아 수강료를 10000을 더하라
+- Select명령 - 검색
+* select [DISTINCT] 속성명
+* from 테이블명
+* where 조건
+* order by 정렬할 속성명 [ASC, DESC]
+* GROUP BY 그룹화 속성명
+* HAVING 그룹조건
+# <사원>테이블의 모든 튜플을 검색 : select * from 사원;
+# <사원>테이블에서 주소속성만 나타내는데 같은 주소는 한번만 출력 : select distinct 주소 from 사원;
+# <사원>테이블에서 급여에 10을 더한 값을 'OO부서의 OOO의 급여는 OOO입니다'형태로 출력 : select 부서, '부서의', 이름, '의 급여는', 급여+10, '입니다', from 사원;
+# <사원>테이블에서 부서가 '편집'부인 모든 튜플을 검색 select * from 사원 where 부서='편집';
+# <사원>테이블에서 부서가 '편집'부이면서 주소가 '후월동'인 튜플을 검색 : select * from 사원 where 부서='편집' and 주소='후월동';
+# <사원>테이블에서 부서가 '편집'이거나 '기획'인 튜플을 검색 : select * from 사원 where 부서='편집' or 부서='기획';
+# <사원>테이블에서 성이 '홍'인 사람의 튜플을 검색 : select * from 사원 where 이름 like'홍%';
+
+@ Like	'홍%' 홍시작
+	'%홍' 홍 끝
+	'%홍%' 홍 포함
+	'_사'  사 끝, 2글자
+	*, %  모든 문자
+	?  _   1자리 문자
+	#      1자리 숫자
+
+# <사원>테이블에서 생일이 '1970-01-01'~'1980-12-31'사이인 튜플을 검색 : select *  from 사원 where 생일 between #1970-01-01 and 1980-12-31;
+# <사원>테이블에서 급여가 210~220인 튜플을 검색 : select * from 사원 where 급여 between 210 and 220
+# <사원>테이블에서 주소가 NULL인 튜플을 검색 : select * from 사원 where 주소 is null;
+# <사원>테이블에서 주소를 기준으로 오름차순 정렬시켜서 상위 2개의 튜플만 표시 : select Top 2 from 사원 order by 주소 ASC;
+# <사원>테이블에서 부서를 기준으로 오름차순 정렬하고 같은 부서인 경우에는 '이름'을 기준으로 내림차순 정렬 : select * from 사원 order by 부서 asc, 이름 desc;
+# <사원>테이블에서 부서별 급여의 평균을 구하라 : select 부서, aug(급여) as 평균 from 사원 group by 부서;
+
+@ 합계 sum, 평균 avg, 최대 max, 최소 min, 개수 count
+
+# <사원>테이블에서 부서별 튜플의 개수를 구하라 : select 부서, count(*) as 사원수 from 사원 group by 부서;
+# <사원>테이블에서 급여가 200이상이고 사원이 2명 이상인 부서의 튜플의 수를 구하라
+: select 부서, count(*)as 사원수 from 사원 where 급여 >= 200 group by 부서 having count(*) >= 2;
+# 경력이 8년 초과인 사원의 이름, 부서, 특기, 경력을 검색
+: select 사원.이름, 사원.부서, 사원.특기, 사원.경력 from 사원, 활동 where 활동.경력 >=8 and 사원.이름 = 활동.이름;
+
+DML-JOIN
+- JOIN 의 개념
+* INNER JOIN : Equi join, cross join
+* OUTER JOIN : left, right, full
+* SELF JOIN
